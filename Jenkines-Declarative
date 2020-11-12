@@ -19,10 +19,10 @@ pipeline{
   steps{
     sshagent(['tomcat-web']) {
    sh """
-   scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Demo-Declarative/target/myweb.war  ec2-user@172.31.13.216:/opt/tomcar8.5/webapps
+   scp -o StrictHostKeyChecking=no target/myweb.war  ec2-user@172.31.13.216:/opt/tomcar8.5/webapps
    
-   ssh ec2-user@172.31.13.216:/opt/tomcat8.5/shutdown.sh
-   ssh ec2-user@172.31.13.216:/opt/tomcat8.5/startup.sh
+   ssh ec2-user@172.31.13.216 /opt/tomcat8.5/shutdown.sh
+   ssh ec2-user@172.31.13.216 /opt/tomcat8.5/startup.sh
    """
 }
  } 
