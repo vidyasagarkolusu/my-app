@@ -9,7 +9,7 @@ pipeline{
        git CredentialsId: 'github', url: 'https://github.com/vidyasagarkolusu/my-app'
   }
   }
-  stage("Maven Build){
+  stage("Maven Build"){
   steps{
   sh "mvn clean package"
   }
